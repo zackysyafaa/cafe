@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zackysyafa's Café — Level Up Your Brand Digitally</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond','serif'],
+            cinzel:  ['Cinzel','serif'],
+            body:    ['DM Sans','sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --cream:#F5F0E8; --espresso:#2C1A0E; --mocha:#6B4226; --gold:#C9A96E; --sage:#8A9A7E; }
+    *,*::before,*::after{box-sizing:border-box;}
+    html,body{overflow-x:hidden;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--espresso);}
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-track{background:var(--cream);}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px;}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
+    .nav-glass{background:rgba(245,240,232,.62);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(201,169,110,.12);transition:box-shadow .4s ease;}
+    .nav-scrolled{box-shadow:0 4px 40px rgba(44,26,14,.08);}
+    .hero-img-clip{border-radius:180px 16px 80px 16px;overflow:hidden;width:100%;height:100%;}
+    .hero-img-clip img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s ease;}
+    .hero-img-clip:hover img{transform:scale(1.04);}
+    @media(max-width:640px){.hero-img-clip{border-radius:80px 12px 40px 12px;}}
+    .sec-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;}
+    .gold-rule{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);display:inline-block;vertical-align:middle;}
+    .orn-div{display:flex;align-items:center;gap:.9rem;color:var(--gold);}
+    .orn-div::before,.orn-div::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+    .menu-row{transition:background .32s ease,padding-left .32s ease;cursor:default;}
+    .menu-row:hover{background:rgba(138,154,126,.13);padding-left:1.1rem;}
+    .btn-outline{display:inline-block;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--espresso);border:1px solid var(--gold);padding:.85rem 2.4rem;background:transparent;text-decoration:none;transition:background .35s,color .35s,transform .25s,box-shadow .35s;}
+    .btn-outline:hover{background:var(--gold);color:#fff;transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,169,110,.28);}
+    .btn-dark{display:inline-block;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--espresso);padding:1rem 2.8rem;text-decoration:none;transition:background .35s,transform .25s,box-shadow .35s;}
+    .btn-dark:hover{background:var(--mocha);transform:translateY(-2px);box-shadow:0 14px 40px rgba(44,26,14,.22);}
+    .nav-link{position:relative;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:rgba(44,26,14,.6);transition:color .3s;}
+    .nav-link::after{content:'';position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+    .nav-link:hover{color:var(--espresso);}
+    .nav-link:hover::after{transform:scaleX(1);}
+    .gal-item{overflow:hidden;}
+    .gal-item img{transition:transform .7s ease;width:100%;height:100%;object-fit:cover;display:block;}
+    .gal-item:hover img{transform:scale(1.07);}
+    .testi-card{transition:transform .3s ease;}
+    .testi-card:hover{transform:translateY(-5px);}
+    @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+    .float-anim{animation:floatY 3.2s ease-in-out infinite;}
+    @keyframes pulseRing{0%{transform:scale(1);opacity:.65;}70%{transform:scale(1.7);opacity:0;}100%{transform:scale(1.7);opacity:0;}}
+    .wa-pulse::before{content:'';position:absolute;inset:0;border-radius:9999px;background:#25D366;animation:pulseRing 2.5s ease-out infinite;z-index:-1;}
+    .wa-tooltip{opacity:0;transform:translateX(6px);transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;}
+    .wa-wrap:hover .wa-tooltip{opacity:1;transform:translateX(0);}
+    @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    .marquee-t{animation:marquee 26s linear infinite;}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50 px-5 md:px-14 lg:px-24 py-5">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#" class="flex flex-col leading-none">
+      <span style="font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.2em;color:var(--espresso);">ZACKYSYAFA'S</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;letter-spacing:.2em;color:var(--gold);font-weight:300;">Café &amp; Space</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-10">
+      <li><a href="#menu"    class="nav-link">Menu</a></li>
+      <li><a href="#about"   class="nav-link">About</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/6282181705980?text=Halo%20Admin%20Moment,%20saya%20mau%20tanya%20tentang%20menu%20hari%20ini" target="_blank" class="hidden md:inline-block btn-outline">Reserve</a>
+    <button onclick="toggleNav()" class="md:hidden flex flex-col gap-[5px] p-1.5">
+      <span class="block w-6 h-px" style="background:var(--espresso);"></span>
+      <span class="block w-4 h-px" style="background:var(--gold);"></span>
+      <span class="block w-6 h-px" style="background:var(--espresso);"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobileNav" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-10" style="background:#FAF6EF;">
+  <button onclick="toggleNav()" class="absolute top-6 right-7 text-3xl font-light" style="color:rgba(44,26,14,.3);">&times;</button>
+  <ul class="flex flex-col items-center gap-8">
+    <li><a href="#menu"    onclick="toggleNav()" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.9rem;color:var(--espresso);" class="hover:text-yellow-600 transition-colors">Menu</a></li>
+    <li><a href="#about"   onclick="toggleNav()" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.9rem;color:var(--espresso);" class="hover:text-yellow-600 transition-colors">About</a></li>
+    <li><a href="#gallery" onclick="toggleNav()" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.9rem;color:var(--espresso);" class="hover:text-yellow-600 transition-colors">Gallery</a></li>
+    <li><a href="#contact" onclick="toggleNav()" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.9rem;color:var(--espresso);" class="hover:text-yellow-600 transition-colors">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/6282181705980?text=Halo%20Admin%20Moment,%20saya%20mau%20tanya%20tentang%20menu%20hari%20ini" target="_blank" class="btn-outline mt-4">Reserve a Table</a>
+</div>
+
+<!-- HERO -->
+<section class="min-h-screen pt-28 pb-24 px-5 md:px-14 lg:px-24 flex items-center" style="background:var(--cream);">
+  <div class="max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 items-center">
+      <!-- Left -->
+      <div data-aos="fade-up" data-aos-duration="1000" class="relative z-10 order-2 md:order-1">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="gold-rule"></span>
+          <span style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);">Est. 2024 · Padang</span>
+          <span class="gold-rule"></span>
+        </div>
+        <div style="position:relative;left:-0.04em;">
+          <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.4rem,8vw,7rem);line-height:.92;color:var(--espresso);">A Place</h1>
+          <h1 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(3.4rem,8vw,7rem);line-height:.92;color:var(--gold);">to Savor</h1>
+          <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.4rem,8vw,7rem);line-height:.92;color:var(--espresso);margin-bottom:2.5rem;">&amp; Create.</h1>
+        </div>
+        <p style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(44,26,14,.4);margin-bottom:.75rem;">Level Up Your Brand Digitally</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(44,26,14,.55);line-height:1.8;max-width:20rem;margin-bottom:3rem;">
+          Where every cup tells a story and every corner invites you to stay a little longer.
+        </p>
+        <div class="flex flex-wrap gap-5 items-center">
+          <a href="#menu" class="btn-dark">Explore Menu</a>
+          <a href="#about" style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;" class="hover:opacity-70 transition-opacity">Our Story ↓</a>
+        </div>
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-4 mt-16 pt-10" style="border-top:1px solid rgba(44,26,14,.08);">
+          <div>
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.5rem;color:var(--espresso);">40<span style="color:var(--gold);">+</span></p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,26,14,.35);margin-top:.25rem;">Menu Items</p>
+          </div>
+          <div>
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.5rem;color:var(--espresso);">3K<span style="color:var(--gold);">+</span></p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,26,14,.35);margin-top:.25rem;">Guests</p>
+          </div>
+          <div>
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.5rem;color:var(--espresso);">4.9<span style="color:var(--gold);">★</span></p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,26,14,.35);margin-top:.25rem;">Rating</p>
+          </div>
+        </div>
+      </div>
+      <!-- Right image -->
+      <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="relative order-1 md:order-2" style="height:clamp(400px,64vh,640px);">
+        <div class="absolute -bottom-10 -right-8 w-52 h-52 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(201,169,110,.2) 0%,transparent 70%);z-index:0;"></div>
+        <div class="absolute top-12 -left-3 rounded-full opacity-50" style="width:3px;height:7rem;background:var(--gold);z-index:20;"></div>
+        <div class="hero-img-clip relative shadow-2xl" style="z-index:10;height:100%;">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=90&auto=format&fit=crop" alt="Café interior"/>
+          <div class="absolute bottom-7 left-7 px-5 py-3" style="background:rgba(245,240,232,.84);backdrop-filter:blur(12px);z-index:20;">
+            <p style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--espresso);">Open Daily</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(44,26,14,.5);">08:00 – 23:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="overflow-hidden py-4 border-y" style="background:#2C1A0E;border-color:rgba(201,169,110,.12);">
+  <div class="marquee-t inline-flex gap-14 whitespace-nowrap select-none">
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Specialty Coffee</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Artisan Pastries</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Nusantara Plates</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Signature Drinks</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Cozy Workspace</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Free High-Speed Wifi</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <!-- duplicate -->
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Specialty Coffee</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Artisan Pastries</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Nusantara Plates</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Signature Drinks</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,169,110,.75);">Cozy Workspace</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+    <span style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,240,232,.4);">Free High-Speed Wifi</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(201,169,110,.3);line-height:1;">✦</span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu" class="py-36 px-5 md:px-14 lg:px-24" style="background:var(--cream);">
+  <div class="max-w-4xl mx-auto">
+    <div data-aos="fade-up" data-aos-duration="1000" class="text-center mb-24">
+      <span class="sec-label mb-5">— Our Offerings —</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,5.5vw,5rem);color:var(--espresso);line-height:1;margin-bottom:1rem;">The Menu</h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:rgba(44,26,14,.35);">Crafted with intention, served with care.</p>
+    </div>
+
+    <!-- Coffee -->
+    <div data-aos="fade-up" data-aos-duration="1000" class="mb-20">
+      <div class="orn-div mb-10"><span style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.22em;color:var(--gold);">Coffees &amp; Brews</span></div>
+      <div class="divide-y" style="border-color:rgba(44,26,14,.07);">
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Signature Espresso</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Single origin Arabica · bold &amp; complex</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 28K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Cloud Latte</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Oat milk foam · warm vanilla undertone</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 35K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Cold Brew Reserve</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">12-hour slow steep · butterfly pea blossom</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 38K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Honey Cardamom Flat White</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Spiced micro-foam · local raw honey</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 40K</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plates -->
+    <div data-aos="fade-up" data-aos-duration="1000" class="mb-20">
+      <div class="orn-div mb-10"><span style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.22em;color:var(--gold);">Bites &amp; Plates</span></div>
+      <div class="divide-y" style="border-color:rgba(44,26,14,.07);">
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Avocado Toast Supreme</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Sourdough · chilli flakes · microgreens</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 55K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Nusantara Rice Bowl</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Rendang bits · pickled acar · sambal matah</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 62K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Smoked Salmon Bagel</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Cream cheese · capers · thin-sliced red onion</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 68K</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sweets -->
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="orn-div mb-10"><span style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.22em;color:var(--gold);">Sweet Endings</span></div>
+      <div class="divide-y" style="border-color:rgba(44,26,14,.07);">
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Matcha Basque Cheesecake</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Ceremonial grade matcha · burnt caramelised top</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 45K</p>
+        </div>
+        <div class="menu-row flex justify-between items-start gap-4 py-7 px-2 rounded-sm">
+          <div><p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.2rem;color:var(--espresso);">Yuzu Lemon Tart</p><p style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(44,26,14,.38);letter-spacing:.12em;margin-top:.4rem;">Yuzu curd · Italian torched meringue</p></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;padding-top:.15rem;">Rp 42K</p>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-duration="1000" class="mt-20 text-center">
+      <a href="https://wa.me/6282181705980?text=Halo%20Admin%20Moment,%20saya%20mau%20tanya%20tentang%20menu%20hari%20ini" target="_blank" class="btn-dark">Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-36 px-5 md:px-14 lg:px-24" style="background:#EDE5D4;">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-28 items-center">
+    <div data-aos="fade-up" data-aos-duration="1000" class="relative" style="height:500px;">
+      <div class="gal-item absolute top-0 left-0 rounded-2xl overflow-hidden shadow-xl" style="width:62%;height:72%;z-index:10;">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=90&auto=format&fit=crop" alt="Café"/>
+      </div>
+      <div class="gal-item absolute bottom-0 right-0 rounded-2xl overflow-hidden shadow-xl" style="width:52%;height:50%;z-index:20;border:2px solid var(--cream);">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=90&auto=format&fit=crop" alt="Coffee"/>
+      </div>
+      <div class="absolute rounded-full flex items-center justify-center shadow-xl" style="top:42%;left:50%;transform:translate(-50%,-50%);z-index:30;width:56px;height:56px;background:var(--espresso);">
+        <span style="font-family:'Cinzel',serif;font-size:.5rem;color:var(--gold);letter-spacing:.1em;text-align:center;line-height:1.4;">ZS<br>CAFÉ</span>
+      </div>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+      <span class="sec-label mb-6">— Our Story</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4.5vw,3.8rem);color:var(--espresso);line-height:1.15;margin-bottom:2rem;">More Than<br><span style="font-style:italic;color:var(--gold);">Just Coffee.</span></h2>
+      <p style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:.875rem;color:rgba(44,26,14,.55);letter-spacing:.04em;line-height:1.9;margin-bottom:1.25rem;">Zackysyafa's Café was born from a simple belief — that a great cup of coffee, a beautiful space, and genuine warmth can transform your entire day.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:.875rem;color:rgba(44,26,14,.55);letter-spacing:.04em;line-height:1.9;margin-bottom:3rem;">We source our beans directly from local Sumatran farmers and our kitchen honours the bold flavours of Nusantara. Whether you're here to hustle, unwind, or simply breathe — there is always a corner for you.</p>
+      <div class="flex flex-wrap gap-8">
+        <div style="border-left:2px solid var(--gold);padding-left:1.25rem;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--espresso);">Mon – Fri</p>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,26,14,.35);margin-top:.25rem;">08:00 – 22:00</p>
+        </div>
+        <div style="border-left:2px solid var(--mocha);padding-left:1.25rem;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--espresso);">Sat – Sun</p>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,26,14,.35);margin-top:.25rem;">09:00 – 23:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-36 px-5 md:px-14 lg:px-24" style="background:var(--cream);">
+  <div class="max-w-7xl mx-auto">
+    <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-24">
+      <div>
+        <span class="sec-label mb-5">— Visual Diary</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,5.5vw,5rem);color:var(--espresso);">Gallery</h2>
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(44,26,14,.35);max-width:18rem;">Every corner crafted with intention and care.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      <div data-aos="fade-up" data-aos-duration="1000" class="gal-item col-span-2 md:col-span-1 rounded-xl overflow-hidden shadow-md" style="height:310px;">
+        <img src="https://images.unsplash.com/photo-1507914372368-b2b085b925a1?w=700&q=90&auto=format&fit=crop" alt="Café vibe"/>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="80" data-aos-duration="1000" class="gal-item rounded-xl overflow-hidden shadow-md" style="height:150px;">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=90&auto=format&fit=crop" alt="Coffee"/>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="130" data-aos-duration="1000" class="gal-item rounded-xl overflow-hidden shadow-md" style="height:150px;">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=90&auto=format&fit=crop" alt="Latte art"/>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="180" data-aos-duration="1000" class="gal-item rounded-xl overflow-hidden shadow-md" style="height:150px;">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=90&auto=format&fit=crop" alt="Interior"/>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="230" data-aos-duration="1000" class="gal-item rounded-xl overflow-hidden shadow-md" style="height:150px;">
+        <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=500&q=90&auto=format&fit=crop" alt="Pastry"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-36 px-5 md:px-14 lg:px-24" style="background:#2C1A0E;">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up" data-aos-duration="1000" class="text-center mb-24">
+      <span class="sec-label mb-5">— Voices</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.4rem,5vw,4.5rem);color:var(--cream);line-height:1;">What They <span style="font-style:italic;color:var(--gold);">Say</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <div data-aos="fade-up" data-aos-duration="1000" class="testi-card p-9 rounded-xl" style="background:rgba(255,255,255,.04);border:1px solid rgba(245,240,232,.07);">
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(245,240,232,.55);line-height:1.85;margin-bottom:2rem;">"The Cold Brew Reserve changed my morning ritual entirely. The aesthetic feels like a gallery — I come here every single day."</p>
+        <div class="flex items-center gap-4">
+          <div class="rounded-full flex items-center justify-center flex-shrink-0" style="width:40px;height:40px;background:var(--gold);font-family:'Cinzel',serif;font-size:.85rem;color:var(--espresso);">R</div>
+          <div><p style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;color:var(--cream);">Rizky Pratama</p><p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(245,240,232,.3);margin-top:.2rem;">Graphic Designer</p></div>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="120" data-aos-duration="1000" class="testi-card p-9 rounded-xl" style="background:rgba(255,255,255,.04);border:1px solid rgba(245,240,232,.07);">
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(245,240,232,.55);line-height:1.85;margin-bottom:2rem;">"Nusantara Rice Bowl with rendang bits — pure genius. The food quality and the ambience make you want to linger forever."</p>
+        <div class="flex items-center gap-4">
+          <div class="rounded-full flex items-center justify-center flex-shrink-0" style="width:40px;height:40px;background:var(--gold);font-family:'Cinzel',serif;font-size:.85rem;color:var(--espresso);">S</div>
+          <div><p style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;color:var(--cream);">Sari Dewi</p><p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(245,240,232,.3);margin-top:.2rem;">Content Creator</p></div>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="240" data-aos-duration="1000" class="testi-card p-9 rounded-xl" style="background:rgba(255,255,255,.04);border:1px solid rgba(245,240,232,.07);">
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(245,240,232,.55);line-height:1.85;margin-bottom:2rem;">"Perfect WFH sanctuary. The matcha cheesecake is the best in Padang — no contest. Fast wifi and total serenity."</p>
+        <div class="flex items-center gap-4">
+          <div class="rounded-full flex items-center justify-center flex-shrink-0" style="width:40px;height:40px;background:var(--gold);font-family:'Cinzel',serif;font-size:.85rem;color:var(--espresso);">A</div>
+          <div><p style="font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;color:var(--cream);">Aldi Fauzan</p><p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(245,240,232,.3);margin-top:.2rem;">Software Engineer</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="py-36 px-5 md:px-14 lg:px-24" style="background:#EDE5D4;">
+  <div data-aos="fade-up" data-aos-duration="1000" class="max-w-3xl mx-auto text-center">
+    <span class="sec-label mb-6">— Come As You Are</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,6.5vw,5.5rem);color:var(--espresso);line-height:1.1;margin-bottom:1.5rem;">Reserve Your<br><span style="font-style:italic;color:var(--gold);">Table Today.</span></h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:rgba(44,26,14,.35);margin-bottom:4rem;max-width:22rem;margin-left:auto;margin-right:auto;">Chat with us on WhatsApp — we're always happy to help.</p>
+    <a href="https://wa.me/6282181705980?text=Halo%20Admin%20Moment,%20saya%20mau%20tanya%20tentang%20menu%20hari%20ini" target="_blank" class="btn-dark inline-flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25D366" style="width:18px;height:18px;flex-shrink:0;">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.55 4.106 1.513 5.834L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.005-1.372l-.36-.213-3.76.881.924-3.664-.234-.373A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+      </svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-20 px-5 md:px-14 lg:px-24" style="background:#2C1A0E;">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-14">
+    <div>
+      <p style="font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:.18em;color:var(--gold);">ZACKYSYAFA'S</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(245,240,232,.3);margin-bottom:2rem;">Café &amp; Space · Padang, West Sumatra</p>
+      <p style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:.8rem;letter-spacing:.04em;line-height:1.9;color:rgba(245,240,232,.38);max-width:18rem;">Level Up Your Brand Digitally.<br>A café for the curious, the creative,<br>and those who love good coffee.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-14">
+      <div>
+        <p style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Navigate</p>
+        <ul style="display:flex;flex-direction:column;gap:1rem;">
+          <li><a href="#menu"    style="font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.06em;color:rgba(245,240,232,.38);text-decoration:none;" class="hover:opacity-75 transition-opacity">Menu</a></li>
+          <li><a href="#about"   style="font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.06em;color:rgba(245,240,232,.38);text-decoration:none;" class="hover:opacity-75 transition-opacity">About</a></li>
+          <li><a href="#gallery" style="font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.06em;color:rgba(245,240,232,.38);text-decoration:none;" class="hover:opacity-75 transition-opacity">Gallery</a></li>
+          <li><a href="#contact" style="font-family:'DM Sans',sans-serif;font-size:.8rem;letter-spacing:.06em;color:rgba(245,240,232,.38);text-decoration:none;" class="hover:opacity-75 transition-opacity">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Find Us</p>
+        <ul style="display:flex;flex-direction:column;gap:1rem;">
+          <li style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(245,240,232,.38);">+62 821-8170-5980</li>
+          <li style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(245,240,232,.38);">Padang, Sumatra Barat</li>
+          <li><a href="https://wa.me/6282181705980" target="_blank" style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(245,240,232,.38);text-decoration:none;" class="hover:opacity-75 transition-opacity">WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-3" style="border-top:1px solid rgba(245,240,232,.07);">
+    <p style="font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.14em;color:rgba(245,240,232,.18);">© 2024 Zackysyafa's Café. All rights reserved.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(245,240,232,.18);">Level Up Your Brand Digitally ✦</p>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<div class="wa-wrap" style="position:fixed;bottom:1.4rem;right:1.4rem;z-index:9999;display:flex;align-items:center;gap:.75rem;">
+  <div class="wa-tooltip" style="background:#1a1a1a;color:#fff;font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;padding:.5rem 1rem;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,.25);">Chat Admin</div>
+  <div class="float-anim" style="position:relative;z-index:1;">
+    <a href="https://wa.me/6282181705980?text=Halo%20Admin%20Moment,%20saya%20mau%20tanya%20tentang%20menu%20hari%20ini" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="wa-pulse" style="position:relative;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:9999px;background:#25D366;box-shadow:0 8px 32px rgba(37,211,102,.35);transition:transform .3s ease;text-decoration:none;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" style="width:26px;height:26px;flex-shrink:0;">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.55 4.106 1.513 5.834L0 24l6.335-1.483A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.005-1.372l-.36-.213-3.76.881.924-3.664-.234-.373A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<script>
+  AOS.init({ once: true, offset: 60 });
+  function toggleNav() {
+    const el = document.getElementById('mobileNav');
+    el.classList.toggle('hidden');
+    el.classList.toggle('flex');
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('nav-scrolled', window.scrollY > 30);
+  });
+</script>
+</body>
+</html>
