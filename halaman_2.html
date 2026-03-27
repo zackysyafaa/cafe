@@ -70,6 +70,32 @@
       box-shadow: 0 2px 40px rgba(44,26,14,0.06);
     }
 
+/* Efek Hover di Navbar */
+#navbar a {
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #D6C7AE; /* Warna gold khas lo */
+    transition: width 0.3s ease;
+}
+
+#navbar a:hover::after {
+    width: 100%; /* Garis muncul dari kiri ke kanan saat disentuh */
+}
+
+#navbar a:hover {
+    color: #D6C7AE;
+}
+
     /* ─── Hero image ─── */
     .hero-photo {
       border-radius: 180px 16px 80px 16px;
@@ -145,6 +171,49 @@
       color: white;
       transform: translateY(-2px);
     }
+
+/* Efek Hover di Tombol Tab Menu */
+.tab-btn {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(214, 199, 174, 0.2); /* Border tipis default */
+}
+
+.tab-btn:hover {
+    background-color: rgba(214, 199, 174, 0.1); /* Background tipis saat disentuh */
+    border-color: #D6C7AE;
+    box-shadow: 0 0 15px rgba(214, 199, 174, 0.3); /* Efek menyala/glow */
+    transform: translateY(-2px); /* Tombol sedikit naik */
+    color: #D6C7AE !important;
+}
+
+/* Biar pas diklik tetep solid dan nggak glow berlebihan */
+.tab-btn.bg-\[\#D6C7AE\] {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+/* Efek Hover pada baris Menu - Lebih Fluid & Luxury */
+#menu-container > div {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Kunci biar nggak kaku */
+    border-left: 2px solid transparent; /* Standby border transparan */
+    padding: 1.25rem 0.5rem; /* Kasih ruang biar pas gerak nggak nabrak */
+    cursor: pointer;
+}
+
+#menu-container > div:hover {
+    background-color: rgba(214, 199, 174, 0.05); 
+    padding-left: 1.5rem; /* Geser lebih halus */
+    border-left: 2px solid #D6C7AE; /* Garis muncul pelan */
+    /* Tambahin glow tipis di sebelah kiri */
+    box-shadow: inset 10px 0 20px -10px rgba(214, 199, 174, 0.1); 
+}
+
+/* Tambahan: Bikin teks h3 di dalemnya ikut bereaksi */
+#menu-container > div:hover h3 {
+    letter-spacing: 0.1em; /* Teks sedikit merenggang pas disentuh */
+    color: #D6C7AE;
+    transition: all 0.5s ease;
+}
 
     /* ─── Gallery hover ─── */
     .gallery-item { overflow: hidden; }
